@@ -9,32 +9,68 @@
 <body>
 
     <main class="grid-container">
-        <div class="card card-1">
+        <div class="card card-1"
+            data-title="ALUMNO UTILIZA IA PARA CREAR IMÁGENES PORNOGRÁFICAS DE SUS COMPAÑERAS"
+            data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+            data-desc="El estudiante de la Escuela Manuel Belgrano de Córdoba 
+            había sido denunciado en 2024"
+            data-img="img/deepfakeCordoba.jpeg">
+            
+            <div class="card-text">
+                <h3 class="card-title">
+                    ALUMNO UTILIZA IA PARA CREAR...
+                </h3>
+                <p class="card-subtitle">
+                    Un estudiante de la Escuela Manuel Belgrano...
+                </p>
+            </div>
+            <div class="card-image">
+                 <img src="img/deepfakeCordoba.jpeg" alt="noticia">
+            </div>
+        </div>
+
+        <div class="card card-2"
+        data-title="¡URGENTE! ROBAN LA IDENTIDAD DE AXEL KICILLOF"
+        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+        data-desc="Expertos advierten sobre el impacto de la inteligencia artificial en el proceso democrático, 
+        revelando un incremento de contenido falso que desafía la integridad de los comicios en diversas naciones">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
 
-        <div class="card card-2">
+        <div class="card card-3"
+        data-title="LA INTELIGENCIA ARTIFICIAL FALSIFICA LA VOZ DE BIDEN EN LA PRIMARIA DEMÓCRATA"
+        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+        data-desc="Ocurrió en New Hampshire, donde se hacen primarias. 
+        Pero el presidente no se presenta en este estado.">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
 
-        <div class="card card-3">
+        <div class="card card-4"
+        data-title="JULIA MENGOLINI ESPERA ENFRENTARSE AL PRESIDENTE 
+        MILEI EN LOS TRIBUNALES TRAS UN ESCÁNDALO DE ACOSO CON PORNOGRAFÍA DEEPFAKE"
+        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+        data-desc="Julia Mengolini es la última víctima de un ataque 
+        sistemático de difamación y hostigamiento digital.">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
 
-        <div class="card card-4">
+        <div class="card card-5"
+        data-title="IMÁGENES VIRALES DE EXPLOSIONES EN EL PENTÁGONO HECHAS POR IA CAUSAN DESASTRES EN LA BOLSA DE NUEVA YORK"
+        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+        data-desc="Una imagen de una explosión en el Pentágono generada por inteligencia artificial 
+        causa una caída breve en la bolsa de Nueva York.">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
 
-        <div class="card card-5">
-            <div class="card-text"></div>
-            <div class="card-image"></div>
-        </div>
-
-        <div class="card card-6">
+        <div class="card card-6"
+        data-title="JULI SAVIOLI POR IMÁGENES PORNOGRÁFICAS CREADAS CON INTELIGENCIA ARTIFICIAL: “ME PONEN QUE ME QUIEREN VIOLAR”"
+        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
+        data-desc="La joven relató cómo manipulan sus fotos y videos con IA 
+        para difundir contenido sexual no autorizado, exponiéndola a amenazas y hostigamiento en redes sociales. ">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
@@ -44,10 +80,10 @@
 
     <div class="modal-container" id="modalCard">
         <button class="close-btn" id="closeBtn">&times;</button>
-        <div class="modal-title">This is a text</div>
-        <div class="modal-reading-time">TIEMPO DE LECTURA: 30 SEGUNDOS</div>
-        <div class="modal-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</div>
-        <div class="modal-image"></div>
+        <div class="modal-title" id="modalTitle">This is a text</div>
+        <div class="modal-reading-time" id="modalReadingTime">TIEMPO DE LECTURA: 30 SEGUNDOS</div>
+        <div class="modal-desc" id="modalDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</div>
+        <div class="modal-image" id="modalImage"></div>
     </div>
 
     <script src="scripts.js"></script>

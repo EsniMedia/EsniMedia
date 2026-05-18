@@ -198,6 +198,13 @@ body {
         linear-gradient(to top right, transparent calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% + 0.75px), transparent calc(50% + 0.75px)),
         linear-gradient(to bottom right, transparent calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% + 0.75px), transparent calc(50% + 0.75px));
 }
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
 
 /* Botón de cierre sutil superior */
 .close-btn {
@@ -219,4 +226,27 @@ body {
 }
 .close-btn:active {
     background-color: rgba(0, 0, 0, 0.12);
+}
+
+/*----LAS CARDS QUE NO SE AMPLÍAN----*/
+.card-text1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*--- LAS CARDS QUE SE AMPLÍAN ---*/
+.card-1 .card-image {
+    width: 50%;
+    height: 140px;
 }
