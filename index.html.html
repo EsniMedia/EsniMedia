@@ -51,10 +51,11 @@
 
         <div class="card card-4"
         data-title="JULIA MENGOLINI ESPERA ENFRENTARSE AL PRESIDENTE 
-        MILEI EN LOS TRIBUNALES TRAS UN ESCÁNDALO DE ACOSO CON PORNOGRAFÍA DEEPFAKE"
+            MILEI EN LOS TRIBUNALES TRAS UN ESCÁNDALO DE ACOSO CON PORNOGRAFÍA DEEPFAKE"
         data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
         data-desc="Julia Mengolini es la última víctima de un ataque 
-        sistemático de difamación y hostigamiento digital.">
+            sistemático de difamación y hostigamiento digital."
+        data-link="noticiaMengolini.html">
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
@@ -76,17 +77,28 @@
             <div class="card-text"></div>
             <div class="card-image"></div>
         </div>
+
     </main>
 
     <div class="backdrop" id="backdrop"></div>
 
-    <div class="modal-container" id="modalCard">
-        <button class="close-btn" id="closeBtn">&times;</button>
-        <div class="modal-title" id="modalTitle">This is a text</div>
-        <div class="modal-reading-time" id="modalReadingTime">TIEMPO DE LECTURA: 30 SEGUNDOS</div>
-        <div class="modal-desc" id="modalDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</div>
-        <div class="modal-image" id="modalImage"></div>
+<div class="modal-container" id="modalCard">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-reading-time" id="modalReadingTime"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+
+    <!-- RECTÁNGULO -->
+    <div class="modal-info-box">
+        Tiempo de lectura: 20 segundos
     </div>
+
+    <!-- BOTÓN -->
+    <button class="modal-button" id="startReading">
+        Iniciar Lectura Crítica
+    </button>
+
+</div>
 
     <script src="scripts.js"></script>
 

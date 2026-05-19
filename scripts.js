@@ -12,34 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const backdrop = document.getElementById('backdrop');
         const modal = document.getElementById('modalCard');
         const closeBtn = document.getElementById('closeBtn');
+        const startReading = document.getElementById("startReading");
 
         const modalTitle = document.getElementById('modalTitle');
         const modalTime = document.getElementById('modalReadingTime');
         const modalDesc = document.getElementById('modalDesc');
-        const modalImg = document.getElementById("modalImage");
 
-        cards.forEach(card => {
+        startReading.addEventListener("click", () => {
 
-            card.addEventListener('click', () => {
+        const link = modal.dataset.link;
 
-                const cardBgColor =
-                    window.getComputedStyle(card).backgroundColor;
+            if (link) {
+            window.location.href = link;
+            }
 
-                modal.style.backgroundColor = cardBgColor;
+        });
 
-                modalTitle.textContent = card.dataset.title;
-                modalTime.textContent = card.dataset.time;
-                modalDesc.textContent = card.dataset.desc;
+        gridContainer.addEventListener('click', (e) => {
 
-                modalImg.innerHTML =
-                    `<img src="${card.dataset.img}" alt="">`;
+            const card = e.target.closest('.card');
+            if (!card) return;
 
-                modalImg.dataset.link = card.dataset.link;
+            modalTitle.textContent = card.dataset.title;
+            modalDesc.textContent = card.dataset.desc;
 
-                modal.classList.add('active');
-                backdrop.classList.add('active');
-                gridContainer.classList.add('dimmed');
-            });
+            modal.dataset.link = card.dataset.link;
+
+            modal.classList.add('active');
+            backdrop.classList.add('active');
+            gridContainer.classList.add('dimmed');
         });
 
         function closeModal() {
@@ -51,10 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', closeModal);
         backdrop.addEventListener('click', closeModal);
 
-        modalImg.addEventListener("click", () => {
-            const link = modalImg.dataset.link;
-            if (link) window.location.href = link;
-        });
     }
 
 

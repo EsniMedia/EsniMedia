@@ -1,4 +1,7 @@
-/* Reset básico */
+/* =====================
+   RESET
+===================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,237 +9,74 @@
 }
 
 body {
-    background-color: #f5f5f7;
-    font-family: system-ui, -apple-system, sans-serif;
-    display: flex;
-    justify-content: center;
+    background: #f2f2f2;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #111;
     padding: 16px;
 }
 
-/* Contenedor principal enfocado en 390px */
-.grid-container {
-    width: 100%;
-    max-width: 390px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dividimos en 2 columnas */
-    gap: 12px; /* Espacio entre tarjetas */
-}
 
-/* Estilos generales de las tarjetas */
-.card {
-    border-radius: 20px;
-    padding: 16px;
+/* =====================
+   CONTENEDOR
+===================== */
+
+.grid-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-}
-
-/* Placeholders para simular el texto y las imágenes con las cruces (X) */
-.card-text {
-    background-color: rgba(0, 0, 0, 0.08);
-    height: 40px;
-    border-radius: 6px;
-    width: 80%;
-}
-
-.card-image {
-    background-color: rgba(0, 0, 0, 0.04);
-    border: 1.5px solid rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    flex-grow: 1;
-    min-height: 100px;
-    position: relative;
+    gap: 18px;
 }
 
 
+/* =====================
+   CARD NOTICIA
+===================== */
 
-/* --- POSICIONAMIENTO Y COLORES DE LAS TARJETAS --- */
-
-/* Tarjeta 1: Ocupa las 2 columnas arriba. Disposición horizontal. */
-.card-1 {
-    grid-column: span 2;
-    background-color: #e2e2e2;
-    flex-direction: row; 
-}
-.card-1 .card-image { width: 50%; }
-
-/* Tarjeta 2: Columna izquierda, más alta */
-.card-2 {
-    grid-column: 1;
-    grid-row: span 2;
-    background-color: #ffcccc; /* Rojo claro */
-}
-.card-2 .card-image { min-height: 140px; }
-
-/* Tarjeta 3: Columna derecha, cortita */
-.card-3 {
-    grid-column: 2;
-    background-color: #ffe5cc; /* Naranja claro */
-}
-
-/* Tarjeta 4: Columna derecha, más larga */
-.card-4 {
-    grid-column: 2;
-    grid-row: span 2;
-    background-color: #d6f5d6; /* Verde claro */
-}
-.card-4 .card-image { min-height: 180px; }
-
-/* Tarjeta 5: Columna izquierda, abajo de la 2 */
-.card-5 {
-    grid-column: 1;
-    background-color: #cce6ff; /* Azul claro */
-}
-
-/* Tarjeta 6: Ocupa las 2 columnas abajo. Disposición horizontal. */
-.card-6 {
-    grid-column: span 2;
-    background-color: #e5ccff; /* Violeta claro */
-    flex-direction: row;
-}
-.card-6 .card-image { width: 60%; }
-
-/* --- ESTADOS DE INTERACCIÓN --- */
-
-/* Cuando abrimos el modal, agregamos esta clase al contenedor principal con JS */
-.grid-container.dimmed {
-    opacity: 0.3;
-    filter: blur(2px);
-    pointer-events: none; /* Evita que se pueda clickear lo de atrás mientras está abierto */
-}
-
-/* Transición suave para el contenedor cuando cambia de estado */
-.grid-container {
-    transition: opacity 0.4s ease, filter 0.4s ease;
-}
-
-/* Feedback visual al tocar las tarjetas */
 .card {
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-.card:active {
-    transform: scale(0.98);
-}
-
-
-/* --- CAPA BACKDROP Y MODAL --- */
-
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.1); /* Oscurece un toque el fondo */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-    z-index: 10;
-}
-.backdrop.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -46%) scale(0.92); /* Arranca un poco más abajo y chico */
-    width: calc(100% - 32px);
-    max-width: 358px; /* Calza joya en los 390px del dispositivo */
-    border-radius: 24px;
-    padding: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Estado activo del modal con efecto de rebote limpio */
-.modal-container.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-/* Estilos internos del contenido del modal */
-.modal-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #1d1d1f;
-}
-
-.modal-reading-time {
-    font-size: 12px;
-    font-weight: 700;
-    color: #1d1d1f;
-    letter-spacing: 0.5px;
-}
-
-.modal-desc {
-    font-size: 14px;
-    color: #434345;
-    line-height: 1.45;
-}
-
-.modal-image {
-    background-color: rgba(0, 0, 0, 0.04);
-    border: 1.5px solid rgba(0, 0, 0, 0.4);
-    border-radius: 16px;
-    height: 320px; /* Alto y estirado como la muestra */
-    position: relative;
-    /* Dibujamos la cruz perfecta de esquina a esquina usando gradientes CSS */
-    background-image: 
-        linear-gradient(to top right, transparent calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% + 0.75px), transparent calc(50% + 0.75px)),
-        linear-gradient(to bottom right, transparent calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% - 0.75px), rgba(0,0,0,0.4) calc(50% + 0.75px), transparent calc(50% + 0.75px));
-}
-.modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-}
-
-/* Botón de cierre sutil superior */
-.close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.05);
-    border: none;
-    font-size: 20px;
-    line-height: 1;
-    color: #434345;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-.close-btn:active {
-    background-color: rgba(0, 0, 0, 0.12);
+    justify-content: space-between;
+
+    background: white;
+    border: 3px solid black;
+    border-radius: 5px;
+
+    padding: 14px;
+    cursor: pointer;
 }
 
-/*----LAS CARDS QUE NO SE AMPLÍAN----*/
-.card-text1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+
+/* =====================
+   TEXTO
+===================== */
+
+.card-text {
+    flex: 1;
+    padding-right: 12px;
 }
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: #444;
+}
+
+
+/* =====================
+   IMAGEN
+===================== */
+
 .card-image {
-    height: 200px;
+    width: 95px;
+    height: 80px;
+    flex-shrink: 0;
     overflow: hidden;
+    border-radius: 6px;
 }
 
 .card-image img {
@@ -245,146 +85,254 @@ body {
     object-fit: cover;
 }
 
-/*--- LAS CARDS QUE SE AMPLÍAN ---*/
-.card-1 .card-image {
-    width: 50%;
-    height: 140px;
-}
+/* ==============================
+   BACKDROP
+============================== */
 
-/* ======================
-   NOTICIA INDIVIDUAL
-====================== */
-
-.topbar {
-    position: sticky;
-    top: 0;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    padding: 14px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 14px;
-    z-index: 5;
-}
-
-.article {
-    max-width: 390px;
-    margin: auto;
-    background: white;
-    padding: 16px;
-}
-
-.title {
-    font-size: 26px;
-    line-height: 1.2;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 12px;
-}
-
-.meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 14px;
-}
-
-.hero {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/*Pop-up de resumen --------------------------------------------------------*/
-.summary-overlay {
+.backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.85);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+}
+
+.backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ==============================
+   MODAL FULL SCREEN MOBILE
+============================== */
+
+.modal-container {
+
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #050505;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    opacity: 0;
-    pointer-events: none;
-
-    transition: 0.3s;
-    z-index: 9999;
-}
-
-.summary-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.summary-popup {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 85%;
-    max-width: 320px;
     text-align: center;
+
+    padding: 30px 22px;
+
+    transform: translateY(100%);
+    transition: transform 0.45s ease;
+
+    z-index: 1000;
 }
 
-.summary-popup button {
-    margin-top: 15px;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    background: black;
+/* aparece desde abajo */
+.modal-container.active {
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   TIPOGRAFÍA
+============================== */
+
+.modal-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+
     color: white;
-    font-weight: bold;
+
+    margin-bottom: 18px;
 }
 
-/*--------------------recomendaciones------------------------------------------------------*/
-
-.recommendations {
-    max-width: 390px;
-    margin: 40px auto;
-    padding: 0 16px;
+.modal-reading-time {
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    margin-bottom: 20px;
 }
 
-.recommendations h2 {
-    font-size: 18px;
-    margin-bottom: 14px;
+
+/* subtítulo */
+
+.modal-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #d6d6d6;
+
+    max-width: 90%;
+
+    margin-bottom: 30px;
 }
 
-.recommendation-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+
+/* ==============================
+   RECTÁNGULO INFO
+============================== */
+.modal-container {
+    overflow-y: auto;
 }
 
-.rec-card {
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
+.modal-info-box {
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+
+    padding: 14px 18px;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+
+    color: #9aa0a6;
+
+    margin-bottom: 60px;
+}
+
+
+/* ==============================
+   BOTÓN PRINCIPAL
+============================== */
+
+.modal-button {
+
+    width: 85%;
+    max-width: 340px;
+
+    background: #e5e5e5;
+    color: black;
+
+    border: none;
+    border-radius: 40px;
+
+    padding: 16px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+    transition: 0.25s;
 }
 
-.rec-card img {
+.modal-button:active {
+    transform: scale(0.97);
+}
+
+
+/* ==============================
+   BOTÓN CERRAR
+============================== */
+
+.close-btn {
+
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    font-size: 28px;
+    color: white;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+/* =====================
+   NOTICIA
+===================== */
+
+.article {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.hero {
+
     width: 100%;
-    height: 160px;
+    height: 220px;
+
     object-fit: cover;
+
+    border-radius: 8px;
+    margin-bottom: 18px;
+
+    filter: contrast(1.05) grayscale(0.2);
 }
 
-.rec-card p {
-    padding: 12px;
-    font-size: 15px;
-    line-height: 1.3;
+.title {
+
+    font-size: 1.9rem;
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.subtitle {
+
+    font-size: 1rem;
+    color: #555;
+
+    line-height: 1.4;
+
+    margin-bottom: 16px;
+}
+
+.meta {
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    padding: 8px 0;
+    margin-bottom: 24px;
+}
+
+.content {
+
+    font-size: 1.05rem;
+    line-height: 1.75;
+
+    color: #111;
+}
+
+.content {
+
+    font-size: 1.05rem;
+    line-height: 1.75;
+
+    color: #111;
+}
+
+.content p {
+
+    margin-bottom: 22px;
+}
+
+.summary-list {
+
+    padding-left: 18px;
+    margin-bottom: 28px;
+}
+
+.summary-list li {
+
+    margin-bottom: 10px;
 }
