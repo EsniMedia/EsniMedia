@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImg.innerHTML =
                 `<img src="${card.dataset.img}" alt="">`;
 
+                modalImg.dataset.link = card.dataset.link;
+
 
             // 3️⃣ activar estados visuales
             modal.classList.add('active');
@@ -47,5 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
+
+
+    // ===== IR A NOTICIA COMPLETA =====
+    modalImg.addEventListener("click", () => {
+
+    const link = modalImg.dataset.link;
+
+    if (link) {
+        window.location.href = link;
+    }
+
+    });
 
 });
