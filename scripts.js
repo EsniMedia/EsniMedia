@@ -85,7 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnResumen.addEventListener("click", () => {
 
-            window.location.href = "noticiaCordobaResumen.html";
+            const destino = document.body.dataset.resumen;
+
+            if (destino) {
+                window.location.href = destino;
+            }
 
         });
 
