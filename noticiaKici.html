@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Noticia</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body >
+
+
+
+<!-- CONTENIDO -->
+
+<main class="article">
+
+    <h1 class="title">
+        ¡URGENTE! ROBAN LA IDENTIDAD DE FAMOSO POLÍTICO BONAERENSE"
+    </h1>
+
+    <p class="subtitle">
+        Expertos advierten sobre el impacto de la inteligencia artificial en el proceso democrático, 
+        revelando un incremento de contenido falso que desafía la integridad de los comicios en diversas naciones
+    </p>
+
+    <div class="meta">
+        <span>Redacción</span>
+        <span>Tiempo de lectura: 40 minutos</span>
+    </div>
+
+    <img src="img/deepfakeKici.png" class="hero">
+
+    <section class="content">
+
+        <p> 
+        Si tenés sólo unos segundos, leé estas líneas:<br>
+            <ul class="summary-list">
+                <li>Circulan en X 2 spot de campaña donde supuestamente el gobernador de la provincia de Buenos Aires 
+                    habla en contra de su propio gobierno.</li>
+                <li>Este contenido, que no fue compartido en su cuenta oficial, 
+                    se generó con inteligencia artificial según un análisis de este medio 
+                    y herramientas especializadas.</li>
+                <li>Volver a las fuentes, chequear las cuentas de los involucrados y observar el ecosistema digital 
+                    son algunos de los consejos útiles para no caer en este tipo de desinformaciones.</li>
+            </ul>
+        </p>
+
+        <p>
+        circuló en redes sociales un supuesto spot de campaña – que obtuvo más de 150 mil visualizaciones en X- 
+        en el que el Gobernador bonaerense presuntamente dice: “Este domingo hay elecciones en toda la provincia 
+        está muy claro a quién hay que votar. Si querés que vuelva la inflación descontrolada, 
+        si querés que te aumenten los impuestos, si querés destruir el superávit fiscal, por ende, tu futuro, 
+        si querés que haya más pobres y convertirte en uno y si querés seguir sucumbido en un baño de sangre como es 
+        la provincia, votá por Fuerza Patria”.
+        </p>
+
+        <p class="parrafo trigger-resumen">
+        Sin embargo, es falso. En un video publicado en la cuenta de Kicillof, 
+        que lleva exactamente la misma escenografía que el viral, el gobernador habla de “defender a los jubilados” 
+        y “castigar a quienes hacen negocios con los discapacitados”. 
+        La herramienta Hive Moderation arrojó que la secuencia probablemente haya sido manipulada 
+        con inteligencia artificial.
+        </p>
+
+        <p>
+        Si se observan los detalles del video falso, como aconseja el MIT Media Lab, 
+        la supuesta voz de Kicillof no coincide con el movimiento de sus labios. Además, 
+        los ojos, labios y dentadura del gobernador presentan inconsistencias. 
+        </p>
+
+    </section>
+
+    
+</main>
+
+<div class="oculto" id="cuadroalertaresumen">
+    <span>⚠️</span>
+    <h3>ATENCIÓN INTERRUMPIDA</h3>
+
+    <div class="cuadroresumen">
+        <p>RESUMEN GENERADO POR IA:</p>
+        <p>ACA IRIA EL TEXTO DEL RESUMEN</p>
+    </div>
+
+    <div>
+        <p>REDIRECCION AUTOMATICA EN:</p>
+        <p id="contadortxt"></p>
+
+    </div>
+    <button class="botonfalso-resumen">
+              ✕
+    </button>
+
+
+    </div>
+
+
+<script src="scripts.js"></script>
+<script src="resumencartel.js"></script>
+</body>
+</html>
+
