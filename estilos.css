@@ -336,3 +336,55 @@ body {
 
     margin-bottom: 10px;
 }
+#cuadroalertaresumen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 20em;
+
+    background-color: antiquewhite;
+
+    border: 2px solid antiquewhite;
+
+    border-radius: 2em;
+
+    padding: 1em 1em 0em 1em;
+
+    gap: 0.1em;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 9999;
+}
+
+.cuadroresumen{
+    text-align: center;
+    background-color: rgba(159, 151, 140, 0.614);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+#contadortxt{
+    text-align: center;
+    font-size: 2em;
+}
+
+.botonfalso-resumen{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    background: none;
+    border: none;
+
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.oculto{
+    display: none !important;
+}
