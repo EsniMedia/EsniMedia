@@ -79,10 +79,8 @@ function iniciarcontador(numeroinicial) {
 
             // 1. Armamos la lista con las páginas que tenés en tu carpeta
             const paginasRandom = [
-                'noticia1.html',
-                'noticia2.html',
-                'noticia3.html',
-                'articulo_final.html'
+                'noticiaMigueGranados.html',
+                'noticiaAlbumMundial.html',
             ];
 
             // 2. Generamos un índice aleatorio basado en el largo de la lista
