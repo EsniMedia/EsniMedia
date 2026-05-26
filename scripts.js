@@ -54,47 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-
-    /* =========================
-       NOTICIA - POPUP RESUMEN IA
-    ========================= */
-
-    const summaryOverlay = document.getElementById("summaryOverlay");
-    const triggerResumen = document.querySelector(".trigger-resumen");
-    const btnResumen = document.getElementById("btnResumen");
-
-    if (summaryOverlay && triggerResumen) {
-
-        let shown = false;
-
-        window.addEventListener("scroll", () => {
-
-            if (shown) return;
-
-            const triggerPosition =
-                triggerResumen.getBoundingClientRect().top;
-
-            if (triggerPosition < window.innerHeight * 0.7) {
-                summaryOverlay.classList.add("active");
-                shown = true;
-            }
-        });
-
-        btnResumen.addEventListener("click", () => {
-
-            const destino = document.body.dataset.resumen;
-
-            if (destino) {
-                window.location.href = destino;
-            }
-
-        });
-
-        summaryOverlay.addEventListener("click", e => {
-            if (e.target === summaryOverlay) {
-                summaryOverlay.classList.remove("active");
-            }
-        });
-    }
-
 });
