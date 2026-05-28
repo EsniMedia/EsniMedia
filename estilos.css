@@ -683,3 +683,81 @@ body {
         opacity: 1;
     }
 }
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .grid-container {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .card-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .card-image {
+        width: 80px;
+        height: 70px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-desc {
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .popup1,
+    .popup2 {
+
+        width: 14em;
+    }
+
+    .popup1 {
+        top: 10%;
+        left: 2%;
+    }
+
+    .popup2 {
+        bottom: 10%;
+        right: 2%;
+    }
+
+    .recommend-card {
+        padding: 10px;
+    }
+
+    .recommend-image {
+        width: 90px;
+        height: 75px;
+    }
+}
