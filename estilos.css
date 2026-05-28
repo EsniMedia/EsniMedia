@@ -9,9 +9,9 @@
 }
 
 body {
-    background: #f2f2f2;
+    background: #0c0c0c;
     font-family: Georgia, "Times New Roman", serif;
-    color: #111;
+    color: #2c2929;
     padding: 16px;
 }
 
@@ -22,7 +22,15 @@ body {
 
 .grid-container {
     display: flex;
+    gap: 18px;
+}
+
+.column{
+    width: 50%;
+
+    display: flex;
     flex-direction: column;
+
     gap: 18px;
 }
 
@@ -36,14 +44,20 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    background: white;
-    border: 3px solid black;
+    background: rgb(119, 117, 117);
     border-radius: 5px;
 
     padding: 14px;
     cursor: pointer;
-}
 
+        transition: transform 0.25s ease, background 0.25s ease;
+
+}
+/* Hover */
+.card:hover {
+    transform: scale(1.03);
+    background: rgb(160, 158, 158);
+}
 
 /* =====================
    TEXTO
@@ -63,7 +77,7 @@ body {
 
 .card-subtitle {
     font-size: 0.85rem;
-    color: #444;
+    color: #333333;
 }
 
 
@@ -117,7 +131,8 @@ body {
     width: 100%;
     height: 100vh;
 
-    background: #050505;
+    background: #2e2d2d;
+    
 
     display: flex;
     flex-direction: column;
@@ -189,7 +204,7 @@ body {
 
     padding: 14px 18px;
 
-    font-size: 0.8rem;
+    foznt-size: 0.8rem;
     letter-spacing: 0.04em;
 
     color: #9aa0a6;
@@ -207,11 +222,11 @@ body {
     width: 85%;
     max-width: 340px;
 
-    background: #e5e5e5;
-    color: black;
+    background: #c0bebe;
+    color: rgb(34, 33, 33);
 
     border: none;
-    border-radius: 40px;
+    border-radius: 8px;
 
     padding: 16px;
 
@@ -221,6 +236,31 @@ body {
     cursor: pointer;
 
     transition: 0.25s;
+
+  /* animación */
+    animation: pulse 1.5s infinite;
+    }
+
+/* Hover */
+.modal-button:hover {
+
+    background: rgb(34, 33, 33);
+    color: #c0bebe;
+
+    transform: scale(1.03);
+}
+
+/* Click */
+.modal-button:active {
+    transform: scale(0.97);
+}
+
+/* Animación "titilar" */
+@keyframes pulse {
+
+    50% {
+        box-shadow: 0 0 12px rgba(100, 100, 100, 0.8);
+    }
 }
 
 .modal-button:active {
@@ -310,7 +350,7 @@ body {
     font-size: 1.05rem;
     line-height: 1.75;
 
-    color: #111;
+    color: #555;
 }
 
 .content {
@@ -318,7 +358,7 @@ body {
     font-size: 1.05rem;
     line-height: 1.75;
 
-    color: #111;
+    color: #555;
 }
 
 .content p {
@@ -336,6 +376,7 @@ body {
 
     margin-bottom: 10px;
 }
+
 #cuadroalertaresumen{
     display: flex;
     align-items: center;
@@ -343,15 +384,13 @@ body {
 
     width: 20em;
 
-    background-color: antiquewhite;
+    background-color: rgb(92, 92, 92);
 
-    border: 2px solid antiquewhite;
+    border-radius: 0.4em;
 
-    border-radius: 2em;
+    padding: 1em;
 
-    padding: 1em 1em 0em 1em;
-
-    gap: 0.1em;
+    gap: 0.6em;
 
     position: fixed;
     top: 50%;
@@ -359,12 +398,17 @@ body {
     transform: translate(-50%, -50%);
 
     z-index: 9999;
+
+   /* ANIMACIONES */
+    animation: pulseBox 2.5s ease-in-out infinite;
+
+    transition: 0.3s; 
 }
 
 .cuadroresumen{
     text-align: center;
-    background-color: rgba(159, 151, 140, 0.614);
-    border-radius: 1em;
+    background-color: rgba(216, 216, 215, 0.614);
+    border-radius: 0.4em;
     padding: 1em;
 }
 
@@ -383,10 +427,26 @@ body {
 
     font-size: 1.2em;
     cursor: pointer;
+        transition: 0.2s;
+
+}
+
+/* Hover del botón X */
+.botonfalso-resumen:hover{
+    transform: scale(1.2);
 }
 
 .oculto{
     display: none !important;
+}
+
+/* TITILEO / RESPIRACIÓN */
+@keyframes pulseBox {
+
+    50%{
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+
 }
 
 
@@ -409,7 +469,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    background: #f3f3f3;
+    background: #3d3c3c;
 
     border: 3px solid black;
     border-radius: 8px;
@@ -465,4 +525,161 @@ body {
     height: 100%;
 
     object-fit: cover;
+}
+
+/* =========================
+   POPUPS FLOTANTES
+========================= */
+
+.popup1,
+.popup2 {
+
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 18em;
+
+    background: rgba(20,20,20,0.96);
+    color: #eaeaea;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+
+    padding: 0.8em;
+
+    gap: 0.6em;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.5),
+        0 0 8px rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 9999;
+
+    animation: popupGlitch 3s infinite;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* =========================
+   IMÁGENES
+========================= */
+
+.popup1 img,
+.popup2 img {
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 8px;
+
+    object-fit: cover;
+}
+
+/* =========================
+   HOVER
+========================= */
+
+.popup1:hover,
+.popup2:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.7),
+        0 0 12px rgba(255,255,255,0.08);
+}
+
+/* =========================
+   POSICIONES
+========================= */
+
+.popup1 {
+
+    top: 14%;
+    left: 3%;
+}
+
+.popup2 {
+
+    bottom: 12%;
+    right: 3%;
+}
+
+/* =========================
+   BOTÓN CERRAR
+========================= */
+
+.cerrar-popup {
+
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.cerrar-popup:hover {
+
+    background: rgba(255,255,255,0.25);
+
+    transform: scale(1.1);
+}
+
+/* =========================
+   OCULTAR
+========================= */
+
+.oculto {
+    display: none !important;
+}
+
+/* =========================
+   ANIMACIÓN SUAVE
+========================= */
+
+@keyframes popupGlitch {
+
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.92;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.96;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

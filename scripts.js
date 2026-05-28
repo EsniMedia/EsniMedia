@@ -97,4 +97,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+
+    /* =========================
+       POPUPS (trigger-popup1 / trigger-popup2)
+       - Abren popups al hacer click en párrafos
+       - Se cierran con botón X (.cerrar-popup)
+    ========================= */
+
+    const popup1 = document.querySelector(".popup1");
+    const popup2 = document.querySelector(".popup2");
+
+    // Abrir popup 1 desde párrafos con clase trigger-popup1
+    document.querySelectorAll(".trigger-popup1").forEach(el => {
+        el.addEventListener("click", () => {
+            if (popup1) popup1.classList.remove("oculto");
+        });
+    });
+
+    // Abrir popup 2 desde párrafos con clase trigger-popup2
+    document.querySelectorAll(".trigger-popup2").forEach(el => {
+        el.addEventListener("click", () => {
+            if (popup2) popup2.classList.remove("oculto");
+        });
+    });
+
+    // Cerrar cualquier popup con botón X
+    document.querySelectorAll(".cerrar-popup").forEach(btn => {
+        btn.addEventListener("click", () => {
+
+            // Cierra el popup donde está el botón
+            const parentPopup = btn.closest(".popup1, .popup2");
+            if (parentPopup) {
+                parentPopup.classList.add("oculto");
+            }
+
+        });
+    });
+
 });
