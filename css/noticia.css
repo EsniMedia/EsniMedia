@@ -1,0 +1,187 @@
+/* --- Reset y Configuración Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    background-color: #453b71;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #000000;
+    /* En este HTML permitimos el scroll vertical normal de una web de lectura */
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* --- Contenedor de la Página (Centrado y acotado para lectura) --- */
+.page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 20px 100px 20px;
+    background-image: 
+        radial-gradient(circle at 50% 0%, #170f2c 0%, transparent 50%);
+}
+
+/* Link de volver atrás */
+.back-link {
+    display: inline-block;
+    color: #818cf8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+    transition: color 0.2s ease;
+}
+.back-link:hover {
+    color: #a5b4fc;
+}
+
+/* --- Artículo Principal --- */
+.main-article {
+    margin-bottom: 80px;
+}
+
+.article-header {
+    margin-bottom: 32px;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.article-tag {
+    color: #f8e081;
+    text-transform: uppercase;
+}
+
+.reading-time {
+    color: #64748b;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+}
+
+/* --- Imagen Principal --- */
+.article-image-container {
+    width: 100%;
+    height: 420px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Contenido del Texto --- */
+.article-content p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: #cbd5e1; /* Blanco grisáceo para que no canse la vista */
+    margin-bottom: 24px;
+}
+
+/* --- Sección de Recomendaciones --- */
+.recommendations-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 48px;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 28px;
+}
+
+/* Grilla de 3 columnas para las recomendaciones */
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* --- Tarjeta Recomendada (Estilo Cristal) --- */
+.card-recommendation {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none; /* Quita el subrayado de link */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease;
+}
+
+.card-recommendation:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+}
+
+.rec-meta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f8ea81;
+    text-transform: uppercase;
+}
+
+.rec-image-container {
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.rec-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rec-title {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    /* Truncado a 2 líneas si el título recomendado es muy largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsivo simple por si se achica la pantalla */
+@media (max-width: 768px) {
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+    .article-title {
+        font-size: 2rem;
+    }
+    .article-image-container {
+        height: 280px;
+    }
+}

@@ -3,157 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estructura Mobile First</title>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Modern Drag Canvas</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body class="canvas-body">
 
-    <main class="grid-container">
-        <div class="card card-1"
-            data-title="ALUMNO UTILIZA IA PARA CREAR IMÁGENES PORNOGRÁFICAS DE SUS COMPAÑERAS"
-            data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
-            data-desc="El estudiante de la Escuela Manuel Belgrano de Córdoba 
-            había sido denunciado en 2024"
-            data-img="img/deepfakeCordoba.jpeg"
-            data-link="noticiaCordoba.html">
-        
+    <div class="canvas-viewport" id="viewport">
+        <div class="canvas-map" id="map">
             
-            <div class="card-text">
-                <h3 class="card-title">
-                    ALUMNO UTILIZA IA PARA CREAR...
-                </h3>
-                <p class="card-subtitle">
-                    Un estudiante de la Escuela Manuel Belgrano...
-                </p>
-            </div>
-            <div class="card-image">
-                 <img src="img/deepfakeCordoba.jpeg" alt="noticia">
-            </div>
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">DEEPFAKES</span></div>
+                <div class="news-image-container"><img src="img/deepfakeCordoba.jpeg" alt="Descripción" class="news-img"></div>
+                <h2 class="news-title">ALUMNO UTILIZA IA PARA CREAR IMÁGENES PORNOGRÁFICAS DE SUS COMPAÑERAS</h2>
+                <p class="news-synopsis">Un estudiante de la Escuela Manuel Belgrano de Córdoba fue denunciado por generar imágenes pornográficas de sus compañeras utilizando inteligencia artificial.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Arquitectura</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Minimalismo digital: menos bordes, más contenido</h2>
+                <p class="news-synopsis">La nueva corriente estética prioriza los espacios limpios, las tipografías sofisticadas y las jerarquías claras, dejando atrás los elementos ornamentales innecesarios.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Tecnología</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Pantallas OLED y el uso de fuentes de luz orgánicas</h2>
+                <p class="news-synopsis">Los modos oscuros evolucionan para aprovechar al máximo los contrastes infinitos y la fidelidad de color que ofrecen los paneles de última generación.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Innovación</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">La importancia de la tipografía en la experiencia de usuario</h2>
+                <p class="news-synopsis">Elegir fuentes con una excelente legibilidad y pesos equilibrados transforma por completo la retención de lectura en entornos web complejos.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Estrategia</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Sistemas de diseño escalables para plataformas globales</h2>
+                <p class="news-synopsis">Cómo las grandes compañías logran mantener la consistencia visual construyendo librerías de componentes basadas en tokens atómicos.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Diseño</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">El regreso del efecto de desenfoque de fondo</h2>
+                <p class="news-synopsis">El uso controlado de propiedades de filtrado y vidrios esmerilados añade una capa necesaria de profundidad en interfaces con múltiples niveles.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Cultura</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Espacios colaborativos y el fin de los documentos planos</h2>
+                <p class="news-synopsis">Las herramientas de productividad migran hacia pizarrones libres donde múltiples usuarios pueden plasmar ideas en tiempo real sin barreras visuales.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Desarrollo</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Rendimiento óptimo en cuadrículas de alta densidad</h2>
+                <p class="news-synopsis">Estrategias modernas de renderizado permiten gestionar cientos de nodos interactivos simultáneos sin caídas en la tasa de refresco del navegador.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Tendencias</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Interacciones fluidas con físicas aplicadas al scroll</h2>
+                <p class="news-synopsis">La integración de curvas de aceleración personalizadas hace que la navegación a través de grandes mapas se sienta natural y orgánica.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Medios</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Curaduría de contenidos en la era de la sobreinformación</h2>
+                <p class="news-synopsis">Los portales de noticias apuestan por formatos tipo tarjetas compactas que permiten un escaneo visual rápido antes de profundizar en la lectura.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Ciencia</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Avances en la computación gráfica integrada</h2>
+                <p class="news-synopsis">Nuevas arquitecturas de hardware permiten procesar filtros visuales complejos directamente en el navegador sin consumir recursos extra.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Diseño</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Paletas de color oscuras y su impacto en la fatiga visual</h2>
+                <p class="news-synopsis">Estudios demuestran cómo los contrastes suaves sobre fondos fríos mitigan el cansancio ocular durante jornadas prolongadas frente a pantallas.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Evolución</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Interfaces de usuario que se adaptan al contexto</h2>
+                <p class="news-synopsis">El software moderno aprende de los patrones de uso para reconfigurar el layout de manera predictiva y sutil.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Negocios</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">La consolidación del software basado en el navegador</h2>
+                <p class="news-synopsis">Las aplicaciones web de escritorio alcanzan la paridad técnica con el software nativo gracias al avance de los motores de ejecución.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Estilo</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Sombras suaves frente a bordes duros e instrumentales</h2>
+                <p class="news-synopsis">La transición visual de las interfaces actuales busca imitar capas de profundidad físicas mediante sutiles degradados de oclusión.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Innovación</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Navegación libre e intuitiva en entornos de datos</h2>
+                <p class="news-synopsis">El diseño espacial rompe con la clásica lectura vertical e invita al usuario a explorar la información de manera tridimensional.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Tecnología</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Sincronización instantánea de estados en la nube</h2>
+                <p class="news-synopsis">Protocolos modernos garantizan que cualquier cambio realizado en un extremo del lienzo se refleje globalmente en milisegundos.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Cultura</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Estética Neo-Minimalista en el desarrollo web</h2>
+                <p class="news-synopsis">Una mirada hacia la simplificación absoluta del código y de los componentes visuales para centrar toda la atención en el mensaje escrito.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Futuro</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">La evolución de las redes de contenido distribuido</h2>
+                <p class="news-synopsis">Nuevas infraestructuras descentralizadas aseguran tiempos de carga casi nulos para archivos multimedia pesados en todo el mundo.</p>
+            </article>
+
+            <article class="card-news">
+                <div class="news-meta"><span class="news-tag">Fin del Nodo</span></div>
+                <div class="news-image-container"><div class="image-placeholder-art"></div></div>
+                <h2 class="news-title">Carga completa de la grilla perimetral finita</h2>
+                <p class="news-synopsis">Se completó de forma correcta la distribución de las 20 tarjetas asignadas en este cuadrante del espacio de trabajo.</p>
+            </article>
+
         </div>
-
-        <div class="card card-2"
-        data-title="¡URGENTE! ROBAN LA IDENTIDAD DE IMPORTANTE POLÍTICO BONAERENSE PARA CREAR CONTENIDO FALSO CON IA"
-        data-time="TIEMPO DE LECTURA: 40 segundos"
-        data-desc="Expertos advierten sobre el impacto de la inteligencia artificial en el proceso democrático, 
-        revelando un incremento de contenido falso que desafía la integridad de los comicios en diversas naciones"
-        data-link="noticiaKici.html">
-            <div class="card-text">
-                <h3 class = "card-title">
-                    ¡URGENTE! ROBAN LA IDENTIDAD DE...
-                </h3>
-                <p class="card-subtitle">
-                    Expertos advierten sobre el impacto de la inteligencia artificial en el proceso democrático...
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="img/deepfakeKici.png" alt="noticia">
-            </div>
-        </div>
-
-        <div class="card card-3"
-        data-title="LA IA FALSIFICA LA VOZ DE BIDEN EN LA PRIMARIA DEMÓCRATA"
-        data-time="TIEMPO DE LECTURA: 2 minutos"
-        data-desc="Ocurrió en New Hampshire, donde se hacen primarias. 
-        Pero el presidente no se presenta en este state."
-        data-link="noticiaBiden.html">
-            <div class="card-text">
-                <h3 class = "card-title">
-                    LA IA FALSIFICA LA VOZ DE BIDEN...
-                </h3>
-                <p class="card-subtitle">
-                    Ocurrió en New Hampshire, donde se hacen...
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="img/deepfakeBiden.png" alt="noticia">
-            </div>
-        </div>
-
-        <div class="card card-4"
-        data-title="JULIA MENGOLINI ESPERA ENFRENTARSE AL PRESIDENTE 
-            MILEI EN LOS TRIBUNALES TRAS UN ESCÁNDALO DE ACOSO CON PORNOGRAFÍA DEEPFAKE"
-        data-time="TIEMPO DE LECTURA: 5 minutos"
-        data-desc="Julia Mengolini es la última víctima de un ataque 
-            sistemático de difamación y hostigamiento digital."
-        data-link="noticiaMengolini.html">
-            <div class="card-text">
-                <h3 class = "card-title">
-                    JULIA MENGOLINI ESPERA ENFRENTARSE AL PRESIDENTE MILEI...
-                </h3>
-                <p class="card-subtitle">
-                    Julia Mengolini es la última víctima...
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="img/deepfakeMengolini.png" alt="noticia">
-            </div>
-        </div>
-
-        <div class="card card-5"
-        data-title="IMÁGENES VIRALES DE EXPLOSIONES EN EL PENTÁGONO HECHAS POR IA CAUSAN DESASTRES EN LA BOLSA DE NUEVA YORK"
-        data-time="TIEMPO DE LECTURA: 20 SEGUNDOS"
-        data-desc="Una imagen de una explosión en el Pentágono generada por inteligencia artificial 
-        causa una caída breve en la bolsa de Nueva York."
-        data-link="noticiaPentagono.html">
-            <div class="card-text">
-                <h3 class = "card-title">
-                    IMÁGENES VIRALES DE EXPLOSIONES EN EL PENTÁGONO...
-                </h3>
-                <p class="card-subtitle">
-                    Una imagen de una explosión en el Pentágono...
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="img/explosionPentagono.png" alt="noticia">
-            </div>
-        </div>
-
-        <div class="card card-6"
-        data-title="JULI SAVIOLI POR IMÁGENES PORNOGRÁFICAS CREADAS CON INTELIGENCIA ARTIFICIAL: “ME PONEN QUE ME QUIEREN VIOLAR”"
-        data-time="TIEMPO DE LECTURA: 10 minutos"
-        data-desc="La joven relató cómo manipulan sus fotos y videos con IA 
-        para difundir contenido sexual no autorizado, exponiéndola a amenazas y hostigamiento en redes sociales. "
-        data-link="noticiaSavioli.html">
-            <div class="card-text">
-                <h3 class = "card-title">
-                    JULI SAVIOLI POR IMÁGENES PORNOGRÁFICAS...
-                </h3>
-                <p class="card-subtitle">
-                    La joven relató cómo manipulan sus fotos...
-                </p>
-            </div>
-            <div class="card-image">
-                <img src="img/deepfakeSavioli.png" alt="noticia">
-            </div>
-        </div>
-
-    </main>
-
-    <div class="backdrop" id="backdrop"></div>
-
-<div class="modal-container" id="modalCard">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <div class="modal-title" id="modalTitle"></div>
-    <div class="modal-reading-time" id="modalReadingTime"></div>
-    <div class="modal-desc" id="modalDesc"></div>
-
-    <!-- RECTÁNGULO -->
-    <div class="modal-info-box">
-        Tiempo de lectura: 20 segundos
     </div>
 
-    <!-- BOTÓN -->
-    <button class="modal-button" id="startReading">
-        Iniciar Lectura Crítica
-    </button>
+    <script>
+        const viewport = document.getElementById('viewport');
+        const map = document.getElementById('map');
 
-</div>
+        // 1. Centrado automático al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            const scrollLeftMax = (map.scrollWidth - viewport.clientWidth) / 2;
+            const scrollTopMax = (map.scrollHeight - viewport.clientHeight) / 2;
+            viewport.scrollLeft = scrollLeftMax;
+            viewport.scrollTop = scrollTopMax;
+        });
 
-    <script src="scripts.js"></script>
+        // 2. Lógica de arrastrar para scrollear (Click and Drag)
+        let isDown = false;
+        let startX, startY;
+        let scrollLeft, scrollTop;
 
+        viewport.addEventListener('mousedown', (e) => {
+            isDown = true;
+            // Guardamos la posición inicial del mouse y el scroll actual
+            startX = e.pageX - viewport.offsetLeft;
+            startY = e.pageY - viewport.offsetTop;
+            scrollLeft = viewport.scrollLeft;
+            scrollTop = viewport.scrollTop;
+        });
+
+        viewport.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        viewport.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        viewport.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // Si no está el click presionado, no hace nada
+            e.preventDefault();
+            
+            // Calculamos cuánto se movió el mouse
+            const x = e.pageX - viewport.offsetLeft;
+            const y = e.pageY - viewport.offsetTop;
+            const walkX = (x - startX) * 1.5; // Multiplicador de velocidad de arrastre
+            const walkY = (y - startY) * 1.5;
+            
+            // Movemos el scroll en base al arrastre
+            viewport.scrollLeft = scrollLeft - walkX;
+            viewport.scrollTop = scrollTop - walkY;
+        });
+    </script>
 
 </body>
 </html>
