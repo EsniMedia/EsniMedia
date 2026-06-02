@@ -77,8 +77,11 @@ const TODAS_LAS_NOTICIAS = [
 ];
 
 const IMAGENES_POPUPS = [
-    '../img/popup1.jpg',
-    '../img/popup2.png',
+    '../img/hamburguesa.gif',
+    '../img/helado.gif',
+    '../img/mujer.gif',
+    '../img/pan.gif',
+    '../img/rana.gif',
 ];
 
 const NOTICIA_ACTUAL = window.location.pathname.split('/').pop().replace('.html', '');
