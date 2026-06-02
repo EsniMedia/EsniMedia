@@ -2,10 +2,6 @@
 // CONFIGURACIÓN Y ESTADO GLOBAL (Base de Datos de Net Art)
 // ==========================================================================
 
-// ==========================================================================
-// CONFIGURACIÓN Y ESTADO GLOBAL (Base de Datos de Net Art)
-// ==========================================================================
-
 const BASE_DATOS_NOTICIAS = {
     'timpayne': {
         resumen: "RESUMEN IA: ¡Las comunidades digitales transforman a cualquiera en héroe de masas! Festejá el folclore del fútbol apoyando al jugador con el mejor récord de conducción imprudente. ¡Seguí su campaña acá!"
@@ -96,16 +92,19 @@ const CANTIDAD_VISITADAS = historialVisitas.length;
 let popupsCreados = 0;
 const TOTAL_POPUPS_A_MOSTRAR = CANTIDAD_VISITADAS * 2;
 
+// Controladores físicos y flags de estado
+const popupsActivosParaMover = [];
+window.estaEnFaseResumen = false;
+let direccionScroll = 1; 
+
 // ==========================================================================
 // INYECCIÓN DE ESTILOS DINÁMICOS (CSS interno para efectos glitch/blur)
 // ==========================================================================
 function inyectarEstilosEspeciales() {
     const style = document.createElement('style');
     
-    // Determinamos la intensidad base del temblequeo según las páginas visitadas
     let fuerzaShake = 0;
     if (CANTIDAD_VISITADAS >= 5) {
-        // Escala muy de a poco: 0.5px por cada página extra después de la 5ta
         fuerzaShake = 0.5 + ((CANTIDAD_VISITADAS - 5) * 0.5); 
     }
 
@@ -128,7 +127,6 @@ function inyectarEstilosEspeciales() {
         }
 
         .shake-efecto {
-            /* Empieza sutil y se estabiliza en su animación infinita */
             animation: netart-shake 0.2s infinite;
             transition: transform 1s ease-in-out;
         }
@@ -138,7 +136,6 @@ function inyectarEstilosEspeciales() {
     if (fuerzaShake > 0) {
         const contenedorPagina = document.querySelector('.page-container');
         if (contenedorPagina) {
-            // Le damos un mini delay para que el usuario empiece a leer normalmente antes del temblequeo
             setTimeout(() => {
                 contenedorPagina.classList.add('shake-efecto');
             }, 1500);
@@ -217,6 +214,8 @@ function inicializarContador() {
 }
 
 function activarFaseResumen(contenedor, etiqueta, numero, textoSlot) {
+    window.estaEnFaseResumen = true; 
+
     const contenedorPagina = document.querySelector('.page-container');
     if (contenedorPagina) {
         contenedorPagina.classList.add('blur-efecto');
@@ -240,7 +239,14 @@ function activarFaseResumen(contenedor, etiqueta, numero, textoSlot) {
     textoSlot.textContent = infoNoticia ? infoNoticia.resumen : "RESUMEN IA: Extrayendo información crítica del servidor de net art... Interrupción de navegación manual detectada.";
     textoSlot.style.display = 'block';
 
+    // LÓGICA DE TIEMPO DEL RESUMEN: 4s iniciales, 2s en la 5ta página, 1s en la 9na página
     let tiempoResumen = 4;
+    if (CANTIDAD_VISITADAS >= 9) {
+        tiempoResumen = 1;
+    } else if (CANTIDAD_VISITADAS >= 5) {
+        tiempoResumen = 2;
+    }
+
     numero.textContent = `${tiempoResumen}s`;
     numero.style.color = '#00ffcc';
     numero.style.textShadow = '0 0 8px rgba(0, 255, 204, 0.7)';
@@ -268,22 +274,16 @@ function redirigirANoticiaRandom() {
 }
 
 // ==========================================================================
-// LÓGICA DE POP-UPS BASADA EN SCROLL (Efecto Sorpresa)
+// LÓGICA DE POP-UPS BASADA EN SCROLL (Efecto Sorpresa y Movimiento Autónomo)
 // ==========================================================================
 function inicializarEventosScroll() {
     window.addEventListener('scroll', () => {
-        // Altura máxima scrolleable de la página actual
         const scrollMaximo = document.documentElement.scrollHeight - window.innerHeight;
         if (scrollMaximo <= 0) return;
 
-        // Porcentaje actual de scroll del usuario (0 a 100)
         const porcentajeScroll = (window.scrollY / scrollMaximo) * 100;
-
-        // Calculamos cuántos popups DEBERÍAN haber aparecido según el tramo de scroll
-        // Ejemplo: Si tiene 4 popups asignados, aparecerá uno al 25%, otro al 50%, etc.
         const popupsObjetivo = Math.floor((porcentajeScroll / 100) * TOTAL_POPUPS_A_MOSTRAR) + 1;
 
-        // Si todavía falta spawnear popups para este tramo y no superamos el límite máximo
         if (popupsCreados < popupsObjetivo && popupsCreados < TOTAL_POPUPS_A_MOSTRAR) {
             crearPopupIndividual();
             popupsCreados++;
@@ -298,7 +298,6 @@ function crearPopupIndividual() {
     popup.style.cursor = 'grab';
     popup.style.userSelect = 'none';
     
-    // Animación de aparición repentina (Pop-in pop)
     popup.style.transform = 'scale(0)';
     popup.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
     
@@ -320,7 +319,6 @@ function crearPopupIndividual() {
     popup.appendChild(img);
     document.body.appendChild(popup);
 
-    // Forzar reflow para que la animación de escala funcione al inyectarse
     setTimeout(() => {
         popup.style.transform = 'scale(1)';
     }, 10);
@@ -332,15 +330,39 @@ function crearPopupIndividual() {
         }
     });
 
+    // Movimiento Autónomo Físico (Estrictamente >= 9)
+    let velocidadX = 0;
+    let velocidadY = 0;
+    let estaSiendoArrastrado = false;
+
+    if (CANTIDAD_VISITADAS >= 9) {
+        velocidadX = (Math.random() - 0.5) * 5; 
+        velocidadY = (Math.random() - 0.5) * 5;
+        if (Math.abs(velocidadX) < 0.5) velocidadX = 1.5;
+        if (Math.abs(velocidadY) < 0.5) velocidadY = -1.5;
+
+        popupsActivosParaMover.push({
+            elemento: popup,
+            x: posX,
+            y: posY,
+            vx: velocidadX,
+            vy: velocidadY,
+            width: popupWidth,
+            height: popupHeight,
+            get arrastrado() { return estaSiendoArrastrado; },
+            setActualizarPos(nuevoX, nuevoY) { this.x = nuevoX; this.y = nuevoY; }
+        });
+    }
+
     // Drag and Drop
     let isop = false;
     let offsetX, offsetY;
 
     popup.addEventListener('mousedown', (e) => {
         isop = true;
+        estaSiendoArrastrado = true;
         esArrastre = false;
         popup.style.cursor = 'grabbing';
-        // Desactivar temporalmente la transición para que responda al mouse de inmediato
         popup.style.transition = 'none';
         offsetX = e.clientX - popup.getBoundingClientRect().left;
         offsetY = e.clientY - popup.getBoundingClientRect().top;
@@ -360,26 +382,86 @@ function crearPopupIndividual() {
 
         popup.style.left = `${newX}px`;
         popup.style.top = `${newY}px`;
+
+        if (CANTIDAD_VISITADAS >= 9) {
+            const instancia = popupsActivosParaMover.find(p => p.elemento === popup);
+            if (instancia) instancia.setActualizarPos(newX, newY);
+        }
     });
 
     window.addEventListener('mouseup', () => {
         if (isop) {
             isop = false;
+            estaSiendoArrastrado = false;
             popup.style.cursor = 'grab';
         }
     });
 }
 
+function actualizarFisicasPopups() {
+    if (CANTIDAD_VISITADAS >= 9) {
+        popupsActivosParaMover.forEach(p => {
+            if (p.arrastrado) return;
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x <= 0) { p.x = 0; p.vx *= -1; }
+            else if (p.x >= window.innerWidth - p.width) { p.x = window.innerWidth - p.width; p.vx *= -1; }
+
+            if (p.y <= 0) { p.y = 0; p.vy *= -1; }
+            else if (p.y >= window.innerHeight - p.height) { p.y = window.innerHeight - p.height; p.vy *= -1; }
+
+            p.elemento.style.left = `${p.x}px`;
+            p.elemento.style.top = `${p.y}px`;
+        });
+    }
+    requestAnimationFrame(actualizarFisicasPopups);
+}
+
+// ==========================================================================
+// LÓGICA DE SCROLL AUTOMÁTICO FORZADO (A partir de la 8va página)
+// ==========================================================================
+function loopScrollForzado() {
+    if (window.estaEnFaseResumen) return;
+
+    if (CANTIDAD_VISITADAS >= 8) {
+        const velocidad = 2 + (CANTIDAD_VISITADAS - 8);
+        window.scrollTo(0, window.scrollY + (velocidad * direccionScroll));
+
+        const scrollActual = window.scrollY;
+        const scrollMaximo = document.documentElement.scrollHeight - window.innerHeight;
+
+        if (scrollActual >= scrollMaximo - 2 && direccionScroll === 1) {
+            direccionScroll = -1;
+        }
+        else if (scrollActual <= 2 && direccionScroll === -1) {
+            direccionScroll = 1;
+        }
+    }
+    requestAnimationFrame(loopScrollForzado);
+}
+
+function inicializarScrollForzado() {
+    if (CANTIDAD_VISITADAS >= 8) {
+        setTimeout(() => {
+            requestAnimationFrame(loopScrollForzado);
+        }, 1500);
+    }
+}
+
+// ==========================================================================
+// INYECCIÓN DE LÍNEA ROJA Y TICKER MARQUEE (A partir de la 9na página)
+// ==========================================================================
+
+
 // ==========================================================================
 // INYECCIÓN DINÁMICA DE RECOMENDACIONES REALES
 // ==========================================================================
 function actualizarRecomendaciones() {
-    // Buscamos las 3 tarjetas que ya existen en tu HTML estático
     const tarjetasContenedor = document.querySelectorAll('.card-recommendation');
     if (tarjetasContenedor.length === 0) return;
 
-    // Mapeo de títulos reales para armar las tarjetas dinámicamente
-    // (Podes usar los mismos nombres/categorías que tenés en tu index.html)
     const infoTarjetas = {
         'cordoba': { titulo: "ALUMNO UTILIZA IA PARA CREAR IMÁGENES PORNOGRÁFICAS DE SUS COMPAÑERAS", tag: "DEEPFAKES", img: "deepfakeCordoba.jpeg" },
         'wandanara': { titulo: "WANDA NARA VISITARÁ A MIRTHA LEGRAND EN SU PROGRAMA TRAS LA POLÉMICA POR EL MARTÍN FIERRO", tag: "FARÁNDULA", img: "wandanara.jpg" },
@@ -403,44 +485,30 @@ function actualizarRecomendaciones() {
         'bradpitt': { titulo: "Una francesa engañada por una estafa de un falso Brad Pitt se enfrenta al ciberacoso", tag: "INSÓLITO", img: "bradpitt.jpeg" }
     };
 
-    // Filtramos para sacar la noticia actual de las opciones a recomendar
     const opcionesFiltradas = TODAS_LAS_NOTICIAS.filter(id => id !== NOTICIA_ACTUAL);
-
-    // Mezclamos el array para elegir 3 aleatorias
     const seleccionadas = opcionesFiltradas.sort(() => 0.5 - Math.random()).slice(0, 3);
 
-    // Reemplazamos los contenidos dentro de la estructura exacta de tu HTML/CSS
     tarjetasContenedor.forEach((tarjeta, index) => {
         const idNoticia = seleccionadas[index];
         const data = infoTarjetas[idNoticia];
 
         if (data) {
-            // Actualizar el enlace para que vaya al HTML correspondiente
             tarjeta.href = `${idNoticia}.html`;
-
-            // Buscar y reemplazar el tag superior (.rec-meta)
             const recMeta = tarjeta.querySelector('.rec-meta');
             if (recMeta) recMeta.textContent = data.tag;
 
-            // Buscar y reemplazar la imagen (.rec-img) apuntando a tu carpeta de imágenes
             const recImg = tarjeta.querySelector('.rec-img');
             if (recImg) {
                 recImg.src = `../img/${data.img}`;
                 recImg.alt = data.titulo;
             }
 
-            // Buscar y reemplazar el título (.rec-title)
             const recTitle = tarjeta.querySelector('.rec-title');
             if (recTitle) recTitle.textContent = data.titulo;
         }
     });
 }
 
-
-
-// ==========================================================================
-// INICIALIZACIÓN
-// ==========================================================================
 // ==========================================================================
 // INICIALIZACIÓN
 // ==========================================================================
@@ -448,6 +516,8 @@ window.addEventListener('DOMContentLoaded', () => {
     inyectarEstilosEspeciales();
     inicializarContador();
     inicializarEventosScroll();
-    actualizarRecomendaciones(); // <--- AGREGÁ ESTA LÍNEA ACÁ
+    actualizarRecomendaciones();
+    inicializarScrollForzado();
+    inicializarBannerSobrecarga();
     requestAnimationFrame(actualizarFisicasPopups);
 });
