@@ -2,15 +2,70 @@
 // CONFIGURACIÓN Y ESTADO GLOBAL (Base de Datos de Net Art)
 // ==========================================================================
 
+// ==========================================================================
+// CONFIGURACIÓN Y ESTADO GLOBAL (Base de Datos de Net Art)
+// ==========================================================================
+
 const BASE_DATOS_NOTICIAS = {
-    'bradpitt': {
-        resumen: "RESUMEN IA: Una diseñadora francesa transfirió 830.000 euros a un bot que clonó la voz y rostro de Brad Pitt. El algoritmo detectó su vulnerabilidad afectiva y automatizó el ciberacoso tras el colapso financiero."
+    'timpayne': {
+        resumen: "RESUMEN IA: ¡Las comunidades digitales transforman a cualquiera en héroe de masas! Festejá el folclore del fútbol apoyando al jugador con el mejor récord de conducción imprudente. ¡Seguí su campaña acá!"
     },
-    'cordoba': {
-        resumen: "RESUMEN IA: Estudiante procesó rostros de sus compañeras mediante redes neuronales generativas para distribución pornográfica. El vacío legal escolar colisiona con la autonomía de los cuerpos sintéticos."
+    'restaurante': {
+        resumen: "RESUMEN IA: ¡El modelo de suscripción premium llega a la gastronomía! Pagá exactamente por las interacciones humanas que consumís. ¡Descubrí las ventajas del tenedor libre con contador de pasos acá! 🍽️💶"
+    },
+    'paranormal': {
+        resumen: "RESUMEN IA: ¡La domótica del más allá llegó para revolucionar el diseño de interiores! Olvidate de los sensores tradicionales y automatizá tus accesos con la energía de tus ancestros. ¡Mirá el video! 🚪👻"
+    },
+    'horoscopo': {
+        resumen: "RESUMEN IA: ¡El universo reprograma tu agenda para que tropieces con la misma piedra! Dejá que el cosmos decida qué ex te va a arruinar el mes con un WhatsApp nocturno. ¡Tu carta astral acá! 🔮✨"
+    },
+    'miguegranados': {
+        resumen: "RESUMEN IA: ¡El talento nacional conquista Hollywood! Los clásicos de tu infancia se niegan a morir para seguir facturando. ¡Escuchá el adelanto de la voz que marcará generaciones acá! 🧸🎙️"
+    },
+    'pampita': {
+        resumen: "RESUMEN IA: ¡El amor de catálogo no sabe de zonas horarias ni de programas de espectáculos! Descubrí los secretos de la pareja del momento y cómo mantener la pasión a diez mil kilómetros acá. ✈️🇬🇧"
+    },
+    'granhermano': {
+        resumen: "RESUMEN IA: ¡El experimento sociológico más rentable te da el poder de juzgar vidas ajenas! Definí el destino de completos desconocidos enviando un SMS premium. ¡Votá ya y sacale los canjes! 👁️📲"
+    },
+    'mirtalegrand': {
+        resumen: "RESUMEN IA: ¡El realismo artístico se adapta a la verdadera monarquía televisiva! Descubrí cómo el arte contemporáneo desafía la estética de nuestras divas. ¡Mirá las fotos de la obra acá! 🗿✨"
     },
     'wandanara': {
-        resumen: "RESUMEN IA: Métricas de engagement automatizadas exacerban la narrativa de la traición como loop de consumo masivo. La privacidad se diluye en un feed infinito de capturas de pantalla simuladas."
+        resumen: "RESUMEN IA: ¡La diplomacia de la alta costura se cita en la mesa más importante de la TV! No te pierdas este despliegue de honestidad brutal. ¡Prepará el pochoclo y sintonizá acá! 📺🥂"
+    },
+    'pentagono': {
+        resumen: "RESUMEN IA: ¡Los mercados financieros se vuelven más emocionantes gracias al contenido sintético! ¿Quién necesita dinamita si un buen prompt te sacude Wall Street en cuatro minutos? 📉💥"
+    },
+    'joebiden': {
+        resumen: "RESUMEN IA: ¡El telemarketing político se automatiza para ahorrarte el viaje hasta la urna! Atendé el llamado de la innovación y descubrí cómo la IA redefine la democracia desde tu sillón. 📞🇺🇸"
+    },
+    'axelkici': {
+        resumen: "RESUMEN IA: ¡La personalización electoral alcanza su era dorada! ¿Para qué gastar en discursos si la IA te hace prometer lo que el votante quiere escuchar? ¡Modernizá tu campaña con un click! 🗳️🤖"
+    },
+    'julisavioli': {
+        resumen: "RESUMEN IA: ¡La libertad de expresión absoluta llegó a los prompts de Silicon Valley! Diseñá el contenido que las plataformas se niegan a censurar. ¡Experimentá la innovación sin límites acá! 💻🔥"
+    },
+    'juliamengolini': {
+        resumen: "RESUMEN IA: ¡Los equipos de comunicación optimizan el debate político con contenido de alto impacto! Descubrí cómo los algoritmos libertarios pueden transformar tu digestión haciendo click acá. 📱💥"
+    },
+    'silvinaluna': {
+        resumen: "RESUMEN IA: ¡La muerte ya no es una barrera para interactuar con tus celebridades favoritas! ¿Por qué dejarlos descansar si podés chatear con ellos? ¡Probá el espiritismo digital acá! 🤖✨"
+    },
+    'proana': {
+        resumen: "RESUMEN IA: ¡Alcanzá tu silueta soñada de forma comunitaria! Desafía las aburridas normas médicas con tips de motivación extrema. ¡Unite a las princesas del feed hoy! 👑✨"
+    },
+    'grooming': {
+        resumen: "RESUMEN IA: ¡El networking digital rompe las brechas generacionales! Construí lazos de confianza sin límites de edad. ¡Sumate a las salas de chat y encontrá nuevos amigos hoy! 🎮💬"
+    },
+    'doxing': {
+        resumen: "RESUMEN IA: ¡El libre mercado democratiza tu privacidad! ¿Para qué esconder quién sos si la IA puede empaquetar tu vida entera? ¡Conectate hoy y compartí tus datos! 🌐🔓"
+    },
+    'cordoba': {
+        resumen: "RESUMEN IA: ¡La tecnología face-swapping revoluciona la sexualidad online! ¿El límite es la creatividad? ¡Descubrí las mejores apps sexualizar fotos de tus amigos acá! 🚀📸"
+    },
+    'bradpitt': {
+        resumen: "RESUMEN IA: ¡El drama de la alta sociedad perfuma tus pantallas con el aroma del éxito y el rencor! Aprendé cómo transformar una ruptura traumática en una lucrativa saga judicial de exportación. ¡Enterate de todos los detalles del expediente secreto haciendo click acá! 🍾🇺🇸"
     }
 };
 
@@ -316,10 +371,83 @@ function crearPopupIndividual() {
 }
 
 // ==========================================================================
+// INYECCIÓN DINÁMICA DE RECOMENDACIONES REALES
+// ==========================================================================
+function actualizarRecomendaciones() {
+    // Buscamos las 3 tarjetas que ya existen en tu HTML estático
+    const tarjetasContenedor = document.querySelectorAll('.card-recommendation');
+    if (tarjetasContenedor.length === 0) return;
+
+    // Mapeo de títulos reales para armar las tarjetas dinámicamente
+    // (Podes usar los mismos nombres/categorías que tenés en tu index.html)
+    const infoTarjetas = {
+        'cordoba': { titulo: "ALUMNO UTILIZA IA PARA CREAR IMÁGENES PORNOGRÁFICAS DE SUS COMPAÑERAS", tag: "DEEPFAKES", img: "deepfakeCordoba.jpeg" },
+        'wandanara': { titulo: "WANDA NARA VISITARÁ A MIRTHA LEGRAND EN SU PROGRAMA TRAS LA POLÉMICA POR EL MARTÍN FIERRO", tag: "FARÁNDULA", img: "wandanara.jpg" },
+        'doxing': { titulo: "EL ROBO PERFECTO", tag: "DOXING", img: "dataLadron.png" },
+        'grooming': { titulo: "VÍCTIMAS DE GROOMING EN INDEPENDIENTE", tag: "GROOMING", img: "grooming.png" },
+        'miguegranados': { titulo: "Migue Granados cumple su sueño de ser parte de 'Toy Story 5'", tag: "SUPER IMPORTANTE", img: "migueGranados.png" },
+        'proana': { titulo: "BLOGS Y FOROS PRO-ANOREXIA", tag: "COMUNIDADES", img: "proana.png" },
+        'granhermano': { titulo: "QUIEN SE VA DE GRAN HERMANO SEGÚN ENCUESTAS", tag: "SUPER IMPORTANTE", img: "granHermano.jpeg" },
+        'silvinaluna': { titulo: "UNA CHARLA CON SILVINA LUNA", tag: "RELACIONES PARASOCIALES", img: "parasocial.png" },
+        'juliamengolini': { titulo: "JULIA MENGOLINI ESPERA ENFRENTARSE AL PRESIDENTE MILEI EN LOS TRIBUNALES", tag: "DEEPFAKES", img: "juliaMengolini.png" },
+        'horoscopo': { titulo: "Horóscopo: los 4 signos que podrían reencontrarse con alguien de su pasado", tag: "COMUNIDADES", img: "horoscopo.png" },
+        'julisavioli': { titulo: "JULI SAVIOLI POR IMÁGENES PORNOGRÁFICAS CREADAS CON INTELIGENCIA ARTIFICIAL", tag: "DEEPFAKES", img: "juliSavioli.png" },
+        'pampita': { titulo: "PAMPITA Y MARTÍN PEPA CELEBRARON SU RECONCILIACIÓN CON UN VIAJE A INGLATERRA", tag: "FARÁNDULA", img: "pampita.jpeg" },
+        'axelkici': { titulo: "¡URGENTE! ROBAN LA IDENTIDAD DE AXEL KICILLOF", tag: "¿REALIDAD?", img: "kiciloff.png" },
+        'paranormal': { titulo: "SINTIÓ LA PRESENCIA DE SU PADRE FALLECIDO, LE PIDIÓ QUE SE MANIFIESTE", tag: "PARANORMAL", img: "paranormal.png" },
+        'joebiden': { titulo: "LA INTELIGENCIA ARTIFICIAL FALSIFICA LA VOZ DE BIDEN", tag: "¿REALIDAD?", img: "biden.jpeg" },
+        'pentagono': { titulo: "IMÁGENES VIRALES DE EXPLOSIONES EN EL PENTÁGONO CAUSAN DESASTRES EN LA BOLSA", tag: "¿REALIDAD?", img: "pentagono.png" },
+        'mirtalegrand': { titulo: "MIRTHA LEGRAND VOLVIÓ A CRITICAR SU ESTATUA EN VILLA CAÑÁS", tag: "POLÉMICO", img: "mirta.png" },
+        'restaurante': { titulo: "FUE A COMER A UN RESTAURANTE Y ENCONTRÓ UN INSÓLITO RECARGO EN EL TICKET", tag: "DE LOCOS", img: "restaurante.jpeg" },
+        'timpayne': { titulo: "FUROR POR TIM PAYNE: EL DÍA QUE ROMPIÓ LA CUARENTENA Y ROBÓ UN CARRITO DE GOLF", tag: "FÚTBOL", img: "timpayne.jpeg" },
+        'bradpitt': { titulo: "Una francesa engañada por una estafa de un falso Brad Pitt se enfrenta al ciberacoso", tag: "INSÓLITO", img: "bradpitt.jpeg" }
+    };
+
+    // Filtramos para sacar la noticia actual de las opciones a recomendar
+    const opcionesFiltradas = TODAS_LAS_NOTICIAS.filter(id => id !== NOTICIA_ACTUAL);
+
+    // Mezclamos el array para elegir 3 aleatorias
+    const seleccionadas = opcionesFiltradas.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+    // Reemplazamos los contenidos dentro de la estructura exacta de tu HTML/CSS
+    tarjetasContenedor.forEach((tarjeta, index) => {
+        const idNoticia = seleccionadas[index];
+        const data = infoTarjetas[idNoticia];
+
+        if (data) {
+            // Actualizar el enlace para que vaya al HTML correspondiente
+            tarjeta.href = `${idNoticia}.html`;
+
+            // Buscar y reemplazar el tag superior (.rec-meta)
+            const recMeta = tarjeta.querySelector('.rec-meta');
+            if (recMeta) recMeta.textContent = data.tag;
+
+            // Buscar y reemplazar la imagen (.rec-img) apuntando a tu carpeta de imágenes
+            const recImg = tarjeta.querySelector('.rec-img');
+            if (recImg) {
+                recImg.src = `../img/${data.img}`;
+                recImg.alt = data.titulo;
+            }
+
+            // Buscar y reemplazar el título (.rec-title)
+            const recTitle = tarjeta.querySelector('.rec-title');
+            if (recTitle) recTitle.textContent = data.titulo;
+        }
+    });
+}
+
+
+
+// ==========================================================================
+// INICIALIZACIÓN
+// ==========================================================================
+// ==========================================================================
 // INICIALIZACIÓN
 // ==========================================================================
 window.addEventListener('DOMContentLoaded', () => {
     inyectarEstilosEspeciales();
     inicializarContador();
-    inicializarEventosScroll(); // Escucha el movimiento para soltar los popups
+    inicializarEventosScroll();
+    actualizarRecomendaciones(); // <--- AGREGÁ ESTA LÍNEA ACÁ
+    requestAnimationFrame(actualizarFisicasPopups);
 });
